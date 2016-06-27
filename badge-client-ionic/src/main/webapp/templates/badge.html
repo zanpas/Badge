@@ -1,0 +1,29 @@
+<ion-view view-title="Badge">
+	<ion-content padding="true">
+		<ion-item class="item-icon-left positive">
+			<i class="icon ion-android-person"></i>User: {{ loginData.username }}
+		</ion-item>
+		<ion-item class="item-icon-left positive">
+			<i class="icon ion-calendar"></i>Data: {{date | date:'dd-MM-yyyy'}}
+		</ion-item>
+		<ion-item class="item-icon-left positive">
+			<i class="icon ion-clock"></i>Time: {{date | date:'HH:mm'}}
+		</ion-item>
+		<ion-item class="item-icon-left positive">
+			<i class="icon ion-mouse"></i>Attività
+			<select>
+				<option>Attivita1</option>
+				<option>Attivita2</option>
+				<option>Attivita3</option>
+				<option>Attivita4</option>
+			</select>
+		</ion-item>
+		<div class="spacer" style="width: 300px; height: 22px;"></div>
+		<ion-item class="item-icon-left positive" id="badge-list-item7" ng-if="!started" ng-click="start()">
+			<i class="icon ion-ios-play"></i>Start
+		</ion-item>
+		<ion-item class="item-icon-left positive" id="badge-list-item7"ng-if="started" ng-click="stop()">
+			<i class="icon ion-ios-play"></i>Stop
+		</ion-item>
+	</ion-content>
+</ion-view>

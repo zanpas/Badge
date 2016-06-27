@@ -1,0 +1,61 @@
+<ion-side-menus enable-menu-with-back-views="false">
+  <ion-side-menu-content drag-content="false">
+    <ion-nav-bar class="bar-stable">
+      <ion-nav-back-button>
+      </ion-nav-back-button>
+
+      <ion-nav-buttons side="left">
+        <button class="button button-icon button-clear ion-navicon" menu-toggle="left">
+        </button>
+      </ion-nav-buttons>
+    </ion-nav-bar>
+    <ion-nav-view name="menuContent"></ion-nav-view>
+  </ion-side-menu-content>
+
+  <ion-side-menu side="left">
+    <ion-header-bar class="bar-stable">
+      <h1 class="title">Funzioni</h1>
+    </ion-header-bar>
+    <ion-content>
+      <ion-list>
+        <ion-item nav-clear menu-close class="item-icon-left positive" href="#/app/loginNew"  ng-hide="userLogged">
+          <i class="icon ion-log-in"></i>Login
+        </ion-item>
+
+        <ion-item nav-clear menu-close class="item-icon-left positive" href="#/app/badge" ng-show="userLogged">
+          <i class="icon ion-android-desktop" ></i>Badge
+        </ion-item>
+
+        <ion-item nav-clear menu-close class="item-icon-left positive" href="#/app/profila" ng-show="userLogged.profile=='admin'">
+          <i class="icon ion-ios-people"></i>Profila Utente
+        </ion-item>
+
+        <ion-item nav-clear menu-close class="item-icon-left positive" href="#/app/gestioneAttivita" ng-show="userLogged.profile=='admin' || userLogged.profile=='manager'">
+          <i class="icon ion-ios-list"></i>Gestione Attività
+        </ion-item>
+
+        <ion-item nav-clear menu-close class="item-icon-left positive" href="#/app/modificaPassword" ng-show="userLogged">
+          <i class="icon ion-wrench"></i>Modifica Password
+        </ion-item>
+
+        <ion-item nav-clear menu-close class="item-icon-left positive" href="#/app/loginNew" ng-click="logout()" ng-show="userLogged" style="color:red" target="_self">
+          <i class="icon ion-log-out"></i>Logout
+        </ion-item>
+
+        <!--
+        <ion-item nav-clear menu-close href="#/app/users" ng-show="userLogged && userLogged.profile=='admin'">
+          Gestione Impiegati
+        </ion-item>
+
+        <ion-item nav-clear menu-close class="item-icon-left positive" href="#/app/roster" ng-show="userLogged && userLogged.profile=='admin'">
+          Registro Presenze
+        </ion-item>
+
+        <ion-item nav-clear menu-close class="item-icon-left positive" href="#/app/loginNew">
+          Gestione Eventi
+        </ion-item>
+        -->
+      </ion-list>
+    </ion-content>
+  </ion-side-menu>
+</ion-side-menus>

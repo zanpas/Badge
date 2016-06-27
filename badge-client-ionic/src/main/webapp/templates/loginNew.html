@@ -1,0 +1,85 @@
+<ion-view view-title={{titleHeader}}  >
+  <ion-content padding="true">
+    <div ng-hide="userLogged">
+      <h2 align="center">Badge Sintegra</a></h2>
+        <form ng-submit="login()">
+            <div class="list">
+                <label class="item item-input">
+                    <span class="input-label">Username</span>
+                    <input type="text" ng-model="loginData.username"> <!-- data binding. Questa direttiva definisce un modello di dati associato alla casella di testo il cui nome e` loginData.userName -->
+                </label>
+                <label class="item item-input">
+                    <span class="input-label">Password</span>
+                    <input type="password" ng-model="loginData.password">
+                </label>
+                <label class="item">
+                    <button class="button button-block button-positive" type="submit" >Log in</button>
+                </label>
+            </div>
+        </form>
+    </div>
+
+     <div ng-hide="!userLogged">
+         <ion-item class="item-icon-left positive">
+             <i class="icon ion-android-person"></i>Firstname: {{ userLogged.firstname }}
+         </ion-item>
+         <ion-item class="item-icon-left positive">
+             <i class="icon ion-android-person"></i>Lastname: {{ userLogged.lastname }}
+         </ion-item>
+         <ion-item class="item-icon-left positive">
+             <i class="icon ion-android-person"></i>Username: {{ userLogged.username }}
+         </ion-item>
+         <ion-item class="item-icon-left positive">
+             <i class="icon ion-android-person"></i>Profile: {{ userLogged.profile }}
+         </ion-item>
+     </div>
+
+    <div ng-hide="true" ng-init="searchHolidays()">
+        <!-- ng-init="initCalendarPage()" -->
+        <div class="btn-toolbar">
+          <div class="button-bar" style="padding-top:10px;padding-bottom:10px">
+            <select ng-show="userLogged.profile=='admin'" class="form-control" ng-model="eventFilter.user" ng-options="user.id as user.lastname for user in users" ng-change="searchEventsByFilters()">
+              <!-- searchEvents('myCalendar1') -->
+              <option value="">-- Utente --</option>
+          </select>
+          <span style="padding-right:10px;padding-left:10px"></span>
+            <!--
+            <button class="btn btn-success" ng-click="changeView('agendaDay', 'myCalendar1')">Giorno</button>
+            <button class="btn btn-success" ng-click="changeView('agendaWeek', 'myCalendar1')">Settimana</button>
+            <button class="btn btn-success" ng-click="changeView('month', 'myCalendar1')">Mese</button>
+             addEvent('myCalendar1')      <div class="pull-right lead"></div>-->
+            <button type="button" class="btn btn-primary" ng-click="showEventModal()">Aggiungi Evento</button>
+            <span style="padding-right:5px;padding-left:5px"></span>
+            <button type="button" class="btn btn-primary" ng-click="showEventCalendar()">Calendario</button>
+          </div>
+        </div>
+        <div id='AlertArea' class="alert-success calAlert" ng-show="alertMessage != undefined && alertMessage != ''">
+          <h4>{{alertMessage}}</h4>
+        </div>
+        <div ng-show="showCalendar" class="calendar" data-tap-disabled="true" ng-model="eventSources" calendar="myCalendar1" ui-calendar="uiConfig.calendar"></div>
+        <br/>
+        <div>
+          <h2>Eventi presenti</h2>
+          <div ng-hide="userEvents && userEvents.length>0">
+            Nessun evento presente
+          </div>
+          <div ng-show="userEvents && userEvents.length>0" class="gridStyle" ng-grid="gridOptions" ></div>
+          <!--
+          <ul>
+            <li ng-repeat="e in userEvents">
+              <div class="alert alert-info">
+                <a class="close" ng-click="remove('myCalendar1', $index)"><i class="icon-remove"></i>Elimina</a>
+                <b>{{e.title}}</b>
+
+                <span ng-show="e.allDay">Tutto giorno {{e.start | date:"dd/MM/yyyy"}}</span>ng-hide="e.allDay"
+
+                <span >Dal {{e.start | date:'dd/MM/yyyy HH:mm'}} al {{e.end | date:'dd/MM/yyyy, HH:mm'}}</span>
+              </div>
+            </li>
+          </ul>
+        -->
+        </div>
+    </div>
+  </ion-content>
+</ion-view>
+
