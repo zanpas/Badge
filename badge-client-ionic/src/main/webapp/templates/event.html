@@ -1,0 +1,64 @@
+<ion-modal-view>
+  <ion-header-bar>
+    <h1 class="title">Nuovo evento</h1>
+    <div class="buttons">
+      <button class="button button-clear" ng-click="closeEventModal()">Close</button>
+    </div>
+  </ion-header-bar>
+  <ion-content>
+    <form ng-submit="updateEvent('myCalendar1')">
+      <div class="list">
+        <label class="item item-input" ng-show="showEventTitle">
+          <span class="input-label">Titolo</span>
+          <input type="text" ng-model="newEvent.title">
+        </label>
+        <label class="item item-input">     
+          <span class="input-label">Dal</span>
+          <label style="padding-right:10px">giorno</label>
+            <label>
+              <input id="startDate4" type="date" placeholder="Data inizio [DD/MM/YYYY]" ng-model="startDate4" />
+            </label>
+            <label style="padding-right:10px">alle ore</label>
+            <label>
+              <input id="startTime4" type="time" ng-model="startTime4" />
+            </label>        
+            <!--
+            <select class="form-control" ng-model="startTime4" ng-options="hour.id as hour.name for hour in dayHours" ng-style="{'width':'70px'}">
+              <option value="00">00</option>
+            </select>  
+            -->
+        </label>
+        <!-- 
+          style="padding-right:10px;padding-left:10px"
+        -->
+        <label class="item item-input">     
+          <span class="input-label">Al</span>
+          <label style="padding-right:10px">giorno</label>
+          <label>
+            <input id="endDate4" type="date" placeholder="Data di fine [DD/MM/YYYY]" ng-model="endDate4" />
+          </label>
+          <label style="padding-right:10px">alle ore</label>
+          <label>
+            <input id="endTime4" type="time" ng-model="endTime4" />
+          </label>          
+        </label>
+        <label class="item item-input">
+          <span class="input-label">Categoria</span>
+          <select class="form-control" ng-model="newEvent.category" ng-options="eventCategory.id as eventCategory.name for eventCategory in eventCategories" ng-style="{'width':'200px'}" ng-change="changeEventCategory()">
+              <option value="">-- categoria --</option>
+          </select>
+        </label>
+        <label class="item item-input">
+          <span class="input-label">Note</span>
+          <input id="note" type="text" ng-model="newEvent.note" />
+        </label>
+        <label class="item">
+          <button class="button button-block button-positive" type="submit">Crea</button>
+        </label>
+      </div>
+      <div style="text-align: center;" ng-show="errorCalendarModal">
+        <span  style="color: red;">{{errorCalendarModal}}</span>
+      </div>
+    </form>
+  </ion-content>
+</ion-modal-view>

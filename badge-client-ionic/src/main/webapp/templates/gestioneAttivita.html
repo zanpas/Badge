@@ -1,0 +1,25 @@
+<ion-view view-title="Gestione Attivita">
+ 	<ion-content padding="true">
+		<form>
+			<ion-item class="item-icon-left positive">
+				<i class="icon ion-android-person"></i>Firstname: {{ userLogged.firstname }}
+			</ion-item>
+			<ion-item class="item-icon-left positive">
+				<i class="icon ion-android-person"></i>Lastname: {{ userLogged.lastname }}
+			</ion-item>
+			<ion-item class="item-icon-left positive">
+				<i class="icon ion-android-person"></i>Username: {{ userLogged.username }}
+			</ion-item>
+			<ion-item class="item-icon-left positive">
+				<i class="icon ion-unlocked"></i>Vecchia Password: {{ userLogged.password }}
+			</ion-item>
+			<ion-item class="item-icon-left positive">
+				<i class="icon ion-locked"></i>Nuova Password<input type="password" ng-model="loginData.newPassword1">
+			</ion-item>
+			<ion-item class="item-icon-left positive">
+				<i class="icon ion-checkmark-round"></i>Conferma Nuova Password<input type="password" ng-model="loginData.newPassword2">
+			</ion-item>
+			<button class="button button-block button-positive" type="submit">Modifica</button>
+		</form>
+	</ion-content>
+</ion-view>

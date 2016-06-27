@@ -1,0 +1,35 @@
+<ion-view view-title="Profila">
+	<ion-content padding="true" >
+		<div>
+			<table st-table="displayedCollection" st-safe-src="rowCollection" class="table table-striped">
+				<thead>
+				<tr>
+					<th st-sort="userfirsname">FirstName</th>
+					<th st-sort="getters.lastname">LastName</th>
+					<th st-sort="getters.username">Username</th>
+					<th st-sort="getters.password">Password</th>
+					<th st-sort="getters.profile">Profile</th>
+					<th >Modifica</th>
+				</tr>
+
+				</thead>
+				<tbody>
+				<tr ng-repeat="row in users">
+					<td>{{row.firstname}}</td>
+					<td>{{row.lastname}}</td>
+					<td>{{row.username}}</td>
+					<td>{{row.password}}</td>
+					<td>{{row.profile}}</td>
+					<td>
+						<button type="button" class="btn btn-warning">Modifica</button>
+					</td>
+				</tr>
+				</tbody>
+			</table>
+			<button type="button" ng-click="addUser()" class="btn btn-sm btn-success">
+				<i class="glyphicon glyphicon-plus">
+				</i> Aggiungi Utente
+			</button>
+		</div>
+	</ion-content>
+</ion-view>

@@ -1,0 +1,43 @@
+/* Empty. Add your own CSS if you like */
+.fc-sat {
+    background-color: #F2F2F2;
+}
+.fc-sun {
+    background-color: #E8E7E6;
+}
+.holiday
+{
+    border:1px solid red;
+    background: red; 
+    color: red;   
+}
+.gridStyle {
+    border: 1px solid rgb(212,212,212);
+    width: 100%; 
+    height: 300px;
+}
+
+.divTable
+{
+    display:  table;
+    width:auto;
+    /*width: 100%;*/
+    background-color:#eee;
+    border:1px solid  #666666;
+    border-spacing:5px;/*cellspacing:poor IE support for  this*/
+    /* border-collapse:separate;*/
+}
+
+.divRow
+{
+    display:table-row;
+    width:auto;
+}
+
+.divCell
+{
+    float:left;/*fix for  buggy browsers*/
+    display:table-column;
+    width:200px;
+    background-color:#ccc;
+}
