@@ -9,7 +9,7 @@
 
 	<context id="PINCOTables" targetRuntime="MyBatis3">
 		<jdbcConnection driverClass="com.mysql.jdbc.Driver"
-			connectionURL="jdbc:mysql://10.141.134.191:3306/badge"
+			connectionURL="jdbc:mysql://10.141.134.24:3306/badge"
 			userId="mysintegra" password="mysintegra">
 		</jdbcConnection>
 
